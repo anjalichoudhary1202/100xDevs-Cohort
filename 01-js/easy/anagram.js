@@ -5,7 +5,28 @@
 */
 
 function isAnagram(str1, str2) {
+  if(str1.length != str2.length) {
+    return false;
+  }
+    // str1 = str1.toLowerCase();
+    // str2 = str2.toLowerCase();
+    // for(let i=0;i<str1.length;i++) {
+    //   if(!str2.includes(str1[i])) {
+    //     return false;
+    //   }
+    // }
 
+    const lc1 = str1.toLowerCase();
+    const lc2 = str2.toLowerCase();
+    const sort1 = lc1.split('').sort();
+    const sort2 = lc2.split('').sort();
+
+    for(let i=0;i<str1.length;i++) {
+      if(sort1[i] != sort2[i]) {
+        return false;
+      }
+    }
+    return true;
 }
 
 module.exports = isAnagram;
